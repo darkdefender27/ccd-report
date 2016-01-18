@@ -16,15 +16,15 @@ import java.io.IOException;
 @Configuration
 public class ServiceBindings {
 
-//    @Bean
-//    public static File jerseyServiceConfigDir() {
-//        return new File(System.getProperty("org.abhishek.service.config"));
-//    }
+    @Bean
+    public static File reportServiceConfigDir() {
+        return new File(System.getProperty("com.barclaycardus.reports.ccd.service.config"));
+    }
 
-//    @Bean
-//    public File jerseyServiceConfigFile() {
-//        return new File(jerseyServiceConfigDir(), "jersey-service-config.json");
-//    }
+    @Bean
+    public File reportServiceConfigFile() {
+        return new File(reportServiceConfigDir(), "CoreConfig.json");
+    }
 
     @Bean
     public ObjectMapper objectMapper() {
@@ -47,7 +47,7 @@ public class ServiceBindings {
     public ReportServiceConfigHolder reportServiceConfigHolder() throws IOException {
         ReportServiceConfigHolder reportServiceConfigHolder = new ReportServiceConfigHolder();
         reportServiceConfigHolder.setObjectMapper(objectMapper());
-//        reportServiceConfigHolder.setServiceConfigFile(jerseyServiceConfigFile().getAbsolutePath());
+        reportServiceConfigHolder.setServiceConfigFile(reportServiceConfigFile().getAbsolutePath());
         return reportServiceConfigHolder;
     }
 

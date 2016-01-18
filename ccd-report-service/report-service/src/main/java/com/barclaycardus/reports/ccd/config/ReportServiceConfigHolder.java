@@ -24,15 +24,15 @@ public class ReportServiceConfigHolder {
     }
 
     public void init() throws IOException {
-//        loadCoreConfig();
+        loadCoreConfig();
     }
 
     public void loadCoreConfig() throws IOException {
         configRoot = objectMapper.readTree(new File(serviceConfigFile));
     }
 
-    public String getMessageForService(String environment) {
-        return configRoot.path("service").path("message").path(environment).getTextValue();
+    public String getUrlForSonarService() {
+        return configRoot.path("configuration").path("sonar-service-url").getTextValue();
     }
 
 }

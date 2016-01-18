@@ -53,8 +53,8 @@ public class MyResource {
     @GET
     @Path("environment")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getEnvironmentMessage(@QueryParam("env") String env) {
-        return ("Environment: " + reportServiceConfigHolder.getMessageForService(env));
+    public String getEnvironmentMessage() {
+        return ("Environment: " + reportServiceConfigHolder.getUrlForSonarService());
     }
 
 }

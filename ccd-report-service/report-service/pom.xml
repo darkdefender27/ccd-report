@@ -5,14 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.barclaycardus.reports</groupId>
+        <groupId>com.barclaycardus.reports.ccd</groupId>
         <artifactId>ccd-report-service</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
-    <groupId>com.barclaycardus.reports.ccd</groupId>
+    <!--<groupId>com.barclaycardus.reports.ccd</groupId>-->
     <artifactId>report-service</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <!--<version>1.0-SNAPSHOT</version>-->
 
     <name>report-service</name>
     <url>http://maven.apache.org</url>
@@ -26,7 +27,7 @@
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <systemProperties>
                         <systemProperty>
-                            <name>org.abhishek.service.config</name>
+                            <name>com.barclaycardus.reports.ccd.service.config</name>
                             <value>${service.config.dir}</value>
                         </systemProperty>
                         <systemProperty>
@@ -45,6 +46,24 @@
                         <idleTimeout>60000</idleTimeout>
                     </httpConnector>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-resources</id>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <phase>generate-test-resources</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/report-resource</outputDirectory>
+                            <includeTypes>tar.gz</includeTypes>
+                            <includeArtifactIds>report-resource</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -96,6 +115,11 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.barclaycardus.reports.ccd</groupId>
+            <artifactId>report-resource</artifactId>
+            <type>tar.gz</type>
         </dependency>
     </dependencies>
 

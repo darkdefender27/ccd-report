@@ -6,7 +6,7 @@
     <groupId>com.barclaycardus.reports.ccd</groupId>
     <artifactId>ccd-report</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>ccd-report</name>
     <url>http://maven.apache.org</url>
@@ -20,7 +20,7 @@
     <properties>
         <service.build.environment>ci</service.build.environment>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <service.config.dir>${project.build.directory}/config/${service.config.name}</service.config.dir>
+        <service.config.dir>${project.build.directory}/report-resource/config/${service.config.name}</service.config.dir>
         <service.config.name>local</service.config.name>
         <service.log4j2.config>${service.config.dir}/log4j2.xml</service.log4j2.config>
         <spring.version>4.0.4.RELEASE</spring.version>
@@ -28,6 +28,7 @@
         <jersey.version>2.8</jersey.version>
         <slf4j.version>1.7.7</slf4j.version>
         <log4j2.version>2.0-beta9</log4j2.version>
+        <freemarker.version>2.3.19</freemarker.version>
         <!-- verify these three -->
         <skip.deploy.codex>false</skip.deploy.codex>
         <skip.deploy.maven>true</skip.deploy.maven>
@@ -266,6 +267,11 @@
                 <artifactId>log4j-core</artifactId>
                 <version>${log4j2.version}</version>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

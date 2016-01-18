@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.barclaycardus.reports.ccd</groupId>
         <artifactId>ccd-report</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
-    <groupId>com.barclaycardus.reports</groupId>
+    <!--<groupId>com.barclaycardus.reports</groupId>-->
     <artifactId>ccd-report-package</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <!--<version>1.0-SNAPSHOT</version>-->
 
     <name>ccd-report-package</name>
     <url>http://maven.apache.org</url>

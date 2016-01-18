@@ -6,13 +6,13 @@
     <parent>
         <groupId>com.barclaycardus.reports.ccd</groupId>
         <artifactId>ccd-report</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
-    <groupId>com.barclaycardus.reports</groupId>
+    <!--<groupId>com.barclaycardus.reports</groupId>-->
     <artifactId>ccd-report-service</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>ccd-report-service</name>
     <url>http://maven.apache.org</url>
@@ -22,13 +22,17 @@
         <module>report-resource</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.barclaycardus.reports.ccd</groupId>
+                <artifactId>report-resource</artifactId>
+                <version>${project.version}</version>
+                <type>tar.gz</type>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
