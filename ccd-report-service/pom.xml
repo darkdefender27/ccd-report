@@ -17,6 +17,11 @@
     <name>ccd-report-service</name>
     <url>http://maven.apache.org</url>
 
+    <modules>
+        <module>report-service</module>
+        <module>report-resource</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -26,8 +31,4 @@
         </dependency>
     </dependencies>
 
-  <modules>
-    <module>report-service</module>
-    <module>report-resource</module>
-  </modules>
 </project>
