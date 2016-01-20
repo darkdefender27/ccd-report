@@ -11,6 +11,12 @@
     <name>ccd-report</name>
     <url>http://maven.apache.org</url>
 
+    <scm>
+        <connection>scm:git:ssh://git@github.com/abhishekbiswas/ccd-report.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/abhishekbiswas/ccd-report.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <modules>
         <module>ccd-report-web</module>
         <module>ccd-report-service</module>
