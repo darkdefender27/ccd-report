@@ -24,17 +24,28 @@
     </modules>
 
     <properties>
-        <service.build.environment>ci</service.build.environment>
+        <ant.contrib.version>1.0b3</ant.contrib.version>
+        <bsh.version>2.0b5</bsh.version>
+        <build.helper.maven.plugin.version>1.8</build.helper.maven.plugin.version>
+        <fmpp.version>0.9.14</fmpp.version>
+        <freemarker.version>2.3.20</freemarker.version>
+        <javax.servlet.api.version>3.0.1</javax.servlet.api.version>
+        <jersey.version>2.8</jersey.version>
+        <jetty.maven.plugin.version>9.1.4.v20140401</jetty.maven.plugin.version>
+        <junit.version>4.12</junit.version>
+        <log4j2.version>2.0-beta9</log4j2.version>
+        <maven.antrun.plugin.version>1.7</maven.antrun.plugin.version>
+        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
+        <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
+        <oro.version>2.0.8</oro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <service.build.environment>ci</service.build.environment>
         <service.config.dir>${project.build.directory}/report-resource/config/${service.config.name}</service.config.dir>
         <service.config.name>local</service.config.name>
         <service.log4j2.config>${service.config.dir}/log4j2.xml</service.log4j2.config>
-        <spring.version>4.0.4.RELEASE</spring.version>
-        <spring.security.version>3.2.4.RELEASE</spring.security.version>
-        <jersey.version>2.8</jersey.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <log4j2.version>2.0-beta9</log4j2.version>
-        <freemarker.version>2.3.19</freemarker.version>
+        <spring.security.version>3.2.4.RELEASE</spring.security.version>
+        <spring.version>4.0.4.RELEASE</spring.version>
         <!-- verify these three -->
         <skip.deploy.codex>false</skip.deploy.codex>
         <skip.deploy.maven>true</skip.deploy.maven>
@@ -47,12 +58,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
-                    <version>1.7</version>
+                    <version>${maven.antrun.plugin.version}</version>
                     <dependencies>
                         <dependency>
                             <groupId>ant-contrib</groupId>
                             <artifactId>ant-contrib</artifactId>
-                            <version>1.0b3</version>
+                            <version>${ant.contrib.version}</version>
                             <exclusions>
                                 <exclusion>
                                     <groupId>ant</groupId>
@@ -63,7 +74,7 @@
                         <dependency>
                             <groupId>net.sourceforge.fmpp</groupId>
                             <artifactId>fmpp</artifactId>
-                            <version>0.9.14</version>
+                            <version>${fmpp.version}</version>
                             <exclusions>
                                 <exclusion>
                                     <groupId>org.freemarker</groupId>
@@ -86,24 +97,24 @@
                         <dependency>
                             <groupId>oro</groupId>
                             <artifactId>oro</artifactId>
-                            <version>2.0.8</version>
+                            <version>${oro.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.beanshell</groupId>
                             <artifactId>bsh</artifactId>
-                            <version>2.0b5</version>
+                            <version>${bsh.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.freemarker</groupId>
                             <artifactId>freemarker</artifactId>
-                            <version>2.3.20</version>
+                            <version>${freemarker.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
+                    <version>${maven.compiler.plugin.version}</version>
                     <configuration>
                         <showDeprecation>true</showDeprecation>
                         <verbose>false</verbose>
@@ -117,17 +128,17 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>1.8</version>
+                    <version>${build.helper.maven.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.4</version>
+                    <version>${maven.assembly.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version>9.1.4.v20140401</version>
+                    <version>${jetty.maven.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -206,7 +217,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.0.1</version>
+                <version>${javax.servlet.api.version}</version>
             </dependency>
             <!-- spring dependencies -->
             <dependency>
@@ -279,16 +290,13 @@
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
             </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>
